@@ -3,7 +3,7 @@ package strings;
 class CommonPrefix {
 
     public static void main(String[] args) {
-      String[] strs = {"flower","flowe","flight"};
+      String[] strs = {"flower","flowertyui","flight"};
         System.out.println(longestCommonPrefix(strs));
 
     }
@@ -18,7 +18,7 @@ class CommonPrefix {
         for(int i=1;i<s.length;i++){
             while(s[i].indexOf(r)!=0){
                 r = r.substring(0,r.length()-1);
-                if(r.isEmpty()){
+                if(r.isEmpty()) {
                     return "-1";
                 }
             }
