@@ -11,18 +11,19 @@ class CommonPrefix {
 
 
     static String longestCommonPrefix(String[] s) {
+
+        String result = s[0];
         if(s.length==1){
-            return s[0];
+            return result;
         }
-        String r = s[0];
-        for(int i=1;i<s.length;i++){
-            while(s[i].indexOf(r)!=0){
-                r = r.substring(0,r.length()-1);
-                if(r.isEmpty()) {
+        for (int i=1;i<s.length;i++){
+            while (s[i].indexOf(result)!=0){
+                result = result.substring(0,result.length()-1);
+                if(result.isEmpty()){
                     return "-1";
                 }
             }
         }
-        return  r;
+        return result;
     }
 }
