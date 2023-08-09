@@ -13,19 +13,17 @@ public class SecondLargestOccurenceOfCharacter
         for(i=0;i<str.length();i++){
             count[str.charAt(i)]++;
         }
-        int first,second;
-        first=second=0;
+        int first=0,second=0;
         for(i=0;i<count.length;i++){
-            if (count[i] > count[first])
-            {
+            if(count[i]>count[first]){
                 second = first;
                 first = i;
-            }
-            else if (count[i] > count[second] &&
-                    count[i] != count[first])
+            }else if(count[i]>count[second] && count[i]!=count[first] ){
                 second = i;
+            }
         }
-        return (char)(second);
+        return (char)second;
+
     }
 
     // Driver program to test above function
