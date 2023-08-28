@@ -5,7 +5,7 @@ import java.util.Arrays;
 
 public class AnagramStrings {
     public static void main(String[] args) {
-        String s1="asdfghjkl",s2="lkjhgfdsa";
+        String s1="asdfghjklt",s2="lkjhgfdsya";
         System.out.println(checkAnagram(s1,s1.length(),s2,s2.length()));
     }
 
@@ -13,10 +13,10 @@ public class AnagramStrings {
         if(n1!=n2){
             return false;
         }
-        int total_Character = 256;
-        int[] a1 = new int[total_Character];
+        int totalChars = 256;
+        int[] a1 = new int[totalChars];
+        int[] a2 = new int[totalChars];
         Arrays.fill(a1,0);
-        int[] a2 = new int[total_Character];
         Arrays.fill(a2,0);
 
         for(int i=0;i<n1;i++){
@@ -24,8 +24,10 @@ public class AnagramStrings {
             a2[s2.charAt(i)]++;
         }
 
-        for(int i=0;i<total_Character;i++){
-            if(a1[i]!=a2[i]) return false;
+        for(int i=0;i<256;i++){
+            if(a1[i]!=a2[i]){
+                return false;
+            }
         }
         return true;
     }

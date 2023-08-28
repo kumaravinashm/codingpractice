@@ -8,28 +8,29 @@ public class SecondLargestOccurenceOfCharacter
     // char
     static char getSecondMostFreq(String str)
     {
-        int[] count = new int[256];
-        int i;
+        int[] chars = new int[256];
+        int i=0,first=0,second=0;
         for(i=0;i<str.length();i++){
-            count[str.charAt(i)]++;
+            chars[str.charAt(i)]++;
         }
-        int first=0,second=0;
-        for(i=0;i<count.length;i++){
-            if(count[i]>count[first]){
+        for(i=0;i<chars.length;i++){
+            if(chars[i]>chars[first]){
                 second = first;
                 first = i;
-            }else if(count[i]>count[second] && count[i]!=count[first] ){
+            }else if (chars[i] > chars[second] &&
+                    chars[i] != chars[first]) {
                 second = i;
             }
         }
         return (char)second;
+
 
     }
 
     // Driver program to test above function
     public static void main(String args[])
     {
-        String str = "geeksforgeeks";
+        String str = "geeksforgeekseeeeeeeeeeetttt";
         char res = getSecondMostFreq(str);
         if (res != '\0')
             System.out.println("Second most frequent char"+

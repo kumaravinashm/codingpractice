@@ -7,7 +7,7 @@ public class RemoveConsequtiveCharacter {
     }
 
 
-    static String removeChar(String s){
+     static String removeChar(String s){
         int n = s.length();
         String result = String.valueOf(s.charAt(0));
         for(int i=0;i<n-1;i++){
