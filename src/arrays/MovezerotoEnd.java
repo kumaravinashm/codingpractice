@@ -13,6 +13,7 @@ public class MovezerotoEnd {
         while(c<n){
             arr[c++]=0;
         }
+
         System.out.println("fwdf");
     }
 
