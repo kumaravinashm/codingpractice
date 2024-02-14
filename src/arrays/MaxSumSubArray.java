@@ -6,8 +6,8 @@ public class MaxSumSubArray {
     public static void main(String[] args) {
         int[] a = {-2, -3, -4, -1, -2, -1, -5, -3};
         int[] a1 = {9};
-//        System.out.println("Maximum contiguous sum is "
-//                + maxSubArraySum(a));
+        System.out.println("Maximum contiguous sum is "
+                + maxSubArraySum(a));
     }
 
 

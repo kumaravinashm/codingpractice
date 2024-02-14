@@ -11,8 +11,7 @@ public class IsomorphicString {
 
     static boolean checkIsomorphic(String str1, String str2) {
         if(str1.length()!=str2.length()) return false;
-        HashMap<Character, Character> map
-                = new HashMap();
+        HashMap<Character, Character> map = new HashMap();
         char character = 'a';
         for(int i=0;i<str1.length();i++){
             if(map.containsKey(str1.charAt(i))){

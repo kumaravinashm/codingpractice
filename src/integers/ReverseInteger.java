@@ -10,13 +10,14 @@ public class ReverseInteger {
     }
 
     static long revnum(int n){
-        long rev = 0l;
-        while (n!=0){
-            rev = rev * 10 + n % 10;
-            n = n / 10;
+        int rev = 0;
+        int temp = n;
+        while (temp>0){
+            int last = temp%10;
+            rev = rev*10+last;
+            temp = temp/10;
         }
-        if (rev>Integer.MAX_VALUE || rev<Integer.MIN_VALUE) return 0;
-        return (int) (long) rev;
+        return rev;
     }
 }
 

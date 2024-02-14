@@ -16,8 +16,8 @@ class CommonPrefix {
         if(s.length==1){
             return result;
         }
-        for (int i=1;i<s.length;i++){
-            while (s[i].indexOf(result)!=0){
+        for (String s1:s){
+            while (s1.indexOf(result)!=0){
                 result = result.substring(0,result.length()-1);
                 if(result.isEmpty()){
                     return "-1";

@@ -1,33 +1,40 @@
 package arrays;
 
+import java.util.ArrayList;
+import java.util.HashSet;
+
 public class ThreeGreatestNumber {
     public static void main(String[] args) {
-        int arr[] = {4, 8, 5,9, 7,10,5,7,3};
-        largest3(arr);
+        int arr[] = {1,1,2};
+        System.out.println(largest3(arr));
     }
 
-    static void largest3(int[] arr){
-        if(arr.length<3) {
-            System.out.print(" Invalid Input ");
-            return;
+    static int largest3(int[] arr){
+        HashSet<Integer> set = new HashSet<>();
+        for(int a:arr){
+            set.add(a);
         }
         int i,first,second,third;
         first=second=third=Integer.MIN_VALUE;
-        for(i=0;i<=arr.length-1;i++){
-            if(arr[i]>first){
+        for(int a:set){
+            if(a>first){
                 third = second;
                 second= first;
-                first = arr[i];
-            } else if (arr[i]>second) {
+                first = a;
+            } else if (a>second) {
                 third = second;
-                second= arr[i];
+                second= a;
             }
-            else if (arr[i]>third) {
-                third = arr[i];
+            else if (a>third) {
+                third = a;
             }
         }
-        System.out.println(first+" "+second+" ");
-        System.out.println(first*second);
+        if(set.size()==2){
+            return first;
+        }else if(set.size()==1){
+            return first;
+        }else
+            return third;
 
-        }
+    }
 }

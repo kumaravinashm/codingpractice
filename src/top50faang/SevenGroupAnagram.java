@@ -12,18 +12,19 @@ public class SevenGroupAnagram {
     }
 
     static List<List<String>> groupAnagram(String[] str){
-        HashMap<String,List<String>> map = new HashMap<>();
-        for(String s: str){
-            char[] ch = s.toCharArray();
-            Arrays.sort(ch);
-            String s1 = String.valueOf(ch);
+        HashMap<String, List<String>> map = new HashMap<>();
+        for(String s:str){
+            char[] c = s.toCharArray();
+            Arrays.sort(c);
+            String s1= String.valueOf(c);
             if(!map.containsKey(s1)){
                 map.put(s1,new ArrayList<>());
+
             }
-            map.get(s1).add(s);
+                map.get(s1).add(s);
+
         }
-
-
         return new ArrayList<>(map.values());
     }
+
 }

@@ -21,12 +21,8 @@ public class LongestNonRepeatingSubstring {
             }
             currentSubstring += c;
         }
-
         maxLength = Math.max(maxLength , currentSubstring.length());
 
-
         return maxLength;
-
-
     }
 }
