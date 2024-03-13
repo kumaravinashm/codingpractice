@@ -4,7 +4,7 @@ public class FirstLongestSubstring {
 
 
     public static void main(String[] args) {
-        String s = "abcdefghijklmnopqrstuvwxyzkjdbvhqdjkbqkljebgkjqwbndefkbqkjswdbfjqwdkjcbqkjdbckjbdckjwfkbkjwdsbcklwbfkjlcbwiebfkjwbdf";
+        String s = "abcdeafghijklmnopqrstuvwxyzkjdbvhqdjkbqkljebgkjqwbndefkbqkjswdbfjqwdkjcbqkjdbckjbdckjwfkbkjwdsbcklwbfkjlcbwiebfkjwbdf";
         System.out.println(getLength(s)[0]);
         System.out.println(getLength(s)[1]);
 
