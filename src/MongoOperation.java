@@ -15,15 +15,15 @@ public class MongoOperation {
     public static void main(String[] args) throws InterruptedException {
 
         List<String> businessids = new ArrayList<>();
-        String srvConnectionString = "mongodb+srv://new-qa-test-user:NmOAMV0ZqvK3vfLW@mdmnext-qa-rel1ci5-blue.ple90.mongodb.net/test";
+        String srvConnectionString = "mongodb+srv://new-qa-test-user:NmOAMV0ZqvK3vfLW@mdmnext-qa-rel1-blue.cmhto.mongodb.net/test";
 
 
         try (MongoClient mongoClient = MongoClients.create(new ConnectionString(srvConnectionString))) {
             System.out.println("Connected to MongoDB.");
 
-            MongoDatabase database = mongoClient.getDatabase("2GC7VIreXXIivKx2MjINix");
+            MongoDatabase database = mongoClient.getDatabase("fYVLNtclNUtkjVdgqjPN2L");
 
-            MongoCollection<Document> collection = database.getCollection("ent_master.sh.ent");
+            MongoCollection<Document> collection = database.getCollection("ent_master.ent");
 
 
             Document query = new Document();
@@ -34,7 +34,7 @@ public class MongoOperation {
             FindIterable<Document> documents = collection.find(query);
 
 
-            for (Document document : documents.limit(48)) {
+            for (Document document : documents.limit(198)) {
                 String s = extractSubstring(document.get("_meta").toString(), "", "");
                 System.out.println(s);
                 businessids.add(s);
@@ -42,7 +42,7 @@ public class MongoOperation {
         } catch (Exception e) {
             System.err.println("Error: " + e.getMessage());
         }
-        merge199Records(businessids);
+//        merge199Records(businessids);
         System.out.println("finished");
     }
 
@@ -70,7 +70,7 @@ public class MongoOperation {
         String your_access_token = "6UwMiCwVeSveGeFH5EuzaY";
         String contentType = "application/json";
 
-        String bid1 = "MDM00000001ADN";
+        String bid1 = businessIds.get(0);
         System.out.println("Starting merging records");
         for(String bid:businessIds) {
             System.out.println("Merging : "+ bid1+" with "+bid);
@@ -92,7 +92,7 @@ public class MongoOperation {
 
                 System.out.println("Response status code: " + response.getStatusCode());
                 System.out.println("Response body: " + response.getBody().asString());
-//                bid1 = response.getBody().jsonPath().getString("businessId");
+                bid1 = response.getBody().jsonPath().getString("businessId");
                 System.out.println("Successfully merged : " + bid1 + " with " + bid);
             }else{
                 System.out.println("matched bids");
