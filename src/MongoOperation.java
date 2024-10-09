@@ -28,13 +28,13 @@ public class MongoOperation {
 
             Document query = new Document();
             query.append("_meta.status", "ACTIVE");
-            query.append("_content.firstName", "Shen");
+            query.append("_content.firstName", "Avinash");
 
 
             FindIterable<Document> documents = collection.find(query);
 
 
-            for (Document document : documents.limit(100)) {
+            for (Document document : documents.limit(198)) {
                 String s = extractSubstring(document.get("_meta").toString(), "", "");
                 System.out.println(s);
                 businessids.add(s);
@@ -42,7 +42,7 @@ public class MongoOperation {
         } catch (Exception e) {
             System.err.println("Error: " + e.getMessage());
         }
-        merge199Records(businessids);
+//        merge199Records(businessids);
         System.out.println("finished");
     }
 
@@ -66,8 +66,8 @@ public class MongoOperation {
     }
 
     static void merge199Records(List<String> businessIds) throws InterruptedException {
-        RestAssured.baseURI = "https://qa-pod1-mdm.crel2.infaqa.com/business-entity/public/api/v1/entity-group/c360.person";
-        String your_access_token = "jr3stTgAiCceCc5BXY7XQb";
+        RestAssured.baseURI = "https://qa-pod1-mdm.rel.infaqa.com/business-entity/public/api/v1/entity-group/c360.person";
+        String your_access_token = "6UwMiCwVeSveGeFH5EuzaY";
         String contentType = "application/json";
 
         String bid1 = businessIds.get(0);
@@ -82,7 +82,7 @@ public class MongoOperation {
                     "            \"businessId\": \""+bid+"\"\n" +
                     "        }\n" +
                     "    ]";
-            if(!bid.equals(bid1) && !bid.equals("MDM000000EG0NP")) {
+            if(!bid.equals(bid1)) {
                 Response response = RestAssured.given()
                         .header("IDS-SESSION-ID", your_access_token)
                         .header("Content-Type", contentType)

@@ -11,9 +11,10 @@ import java.util.HashSet;
 public class PallindromeSubstrings {
     public static void main(String[] args) {
         String s = "racecarkayakaanna";
-        for(String s1:getSubstrings(s)){
-            System.out.println(s1);
-        }
+//        for(String s1:getSubstrings(s)){
+//            System.out.println(s1);
+//        }
+        System.out.println(primePalindrome(9989900));
     }
 
     static ArrayList<String> getSubstrings(String s){
@@ -64,6 +65,46 @@ public class PallindromeSubstrings {
             }
         }
         return arr;
+    }
+
+    static int primePalindrome(int n) {
+        boolean f = true;
+        while(f){
+            if(isPrime(n)){
+                if(isPallindrome(n)){
+                    f=false;
+                }else {
+                    n++;
+                }
+            }
+            else{
+                n++;
+            }
+        }
+        return n;
+    }
+
+
+    static boolean isPrime(int n)
+    {
+
+        if (n <= 1)
+            return false;
+        for (int i = 2; i <= Math.sqrt(n); i++)
+            if (n % i == 0)
+                return false;
+
+        return true;
+    }
+    static boolean isPallindrome(int n)
+    {
+        int t = n;
+        int reversed = 0;
+        while (n > 0) {
+            reversed = reversed * 10 + n % 10;
+            n = n / 10;
+        }
+        return t == reversed;
     }
 
 
