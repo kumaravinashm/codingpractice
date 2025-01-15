@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/codingpractice.iml" filepath="$PROJECT_DIR$/codingpractice.iml" />
+      <module fileurl="file://$PROJECT_DIR$/mongodb-srv-example.iml" filepath="$PROJECT_DIR$/mongodb-srv-example.iml" />
     </modules>
   </component>
 </project>
